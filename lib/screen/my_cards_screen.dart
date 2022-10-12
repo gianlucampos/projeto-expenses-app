@@ -1,3 +1,4 @@
+import 'package:expenses_app/widgets/bar_chart2_widget.dart';
 import 'package:expenses_app/widgets/limit_widget.dart';
 import 'package:expenses_app/widgets/transaction_widget.dart';
 import 'package:flutter/material.dart';
@@ -54,17 +55,9 @@ class MyCardsScreen extends StatelessWidget {
               ),
               Divider(height: 25,color: Colors.transparent),
               LimitListWidget(),
+              BarChartSample2(),
               Divider(height: 25,color: Colors.transparent),
-              Text(
-                'Last Transactions',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
-              ),
-              Divider(height: 25,color: Colors.transparent),
-              TransactionWidget(),
-              TransactionWidget(),
+              TransactionListWidget()
             ],
           ),
         ),

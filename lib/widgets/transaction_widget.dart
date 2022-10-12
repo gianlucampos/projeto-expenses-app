@@ -1,5 +1,27 @@
 import 'package:flutter/material.dart';
 
+class TransactionListWidget extends StatelessWidget {
+  const TransactionListWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'Last Transactions',
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+        Divider(height: 25, color: Colors.transparent),
+        TransactionWidget(),
+        TransactionWidget(),
+      ],
+    );
+  }
+}
+
 class TransactionWidget extends StatelessWidget {
   const TransactionWidget({
     Key? key,
