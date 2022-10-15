@@ -1,11 +1,12 @@
-import 'package:expenses_app/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'app/screen/home_view.dart';
+
 void main() {
-  runApp(const HomeScreen());
+  runApp(const HomeView());
 }
 
-//HomeScreen
+//HomeView
   //SideBar
   //My Cards
     //Limit

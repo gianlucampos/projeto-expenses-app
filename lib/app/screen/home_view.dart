@@ -1,17 +1,18 @@
-import 'package:expenses_app/screen/my_cards_screen.dart';
-import 'package:expenses_app/widgets/limit_widget.dart';
-import 'package:expenses_app/widgets/transaction_widget.dart';
+import 'package:expenses_app/app/screen/my_cards_view.dart';
+import 'package:expenses_app/app/widgets/limit_widget.dart';
+import 'package:expenses_app/app/widgets/transaction_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeView extends StatelessWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
       home: Scaffold(
-        body: MyCardsScreen(),
+        body: MyCardsView(),
       ),
     );
   }

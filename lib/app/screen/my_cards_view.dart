@@ -1,10 +1,10 @@
-import 'package:expenses_app/widgets/bar_chart2_widget.dart';
-import 'package:expenses_app/widgets/limit_widget.dart';
-import 'package:expenses_app/widgets/transaction_widget.dart';
+import 'package:expenses_app/app/widgets/limit_widget.dart';
+import 'package:expenses_app/app/widgets/linear_chart_widget.dart';
+import 'package:expenses_app/app/widgets/transaction_widget.dart';
 import 'package:flutter/material.dart';
 
-class MyCardsScreen extends StatelessWidget {
-  const MyCardsScreen({Key? key}) : super(key: key);
+class MyCardsView extends StatelessWidget {
+  const MyCardsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class MyCardsScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFF2D556C),
+                      backgroundColor: Color(0xFF2D556C),
                       side: BorderSide(
                         width: 1,
                         color: Colors.blueAccent,
@@ -42,21 +42,22 @@ class MyCardsScreen extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 15),
                       child: Text(
                         '+ Card',
                         style: TextStyle(
-                            color: Color(0xFF1AACAD), fontWeight: FontWeight.bold),
+                            color: Color(0xFF1AACAD),
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                 ],
               ),
-              Divider(height: 25,color: Colors.transparent),
+              Divider(height: 25, color: Colors.transparent),
               LimitListWidget(),
-              BarChartSample2(),
-              Divider(height: 25,color: Colors.transparent),
+              LinearChartWidget(),
+              Divider(height: 25, color: Colors.transparent),
               TransactionListWidget()
             ],
           ),
