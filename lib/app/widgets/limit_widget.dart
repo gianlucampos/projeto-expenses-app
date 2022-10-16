@@ -16,6 +16,7 @@ class LimitListWidget extends StatelessWidget {
       child: Row(
         children: [
           LimitWidget(),
+          SizedBox(width: 75),
           LimitWidget(),
         ],
       ),
@@ -31,8 +32,8 @@ class LimitWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
       height: 120,
+      margin: const EdgeInsets.symmetric(horizontal: 25),
       decoration: BoxDecoration(
         color: Color(0xFF03314C),
         borderRadius: BorderRadius.all(Radius.circular(15)), //Bo

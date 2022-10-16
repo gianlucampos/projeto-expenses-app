@@ -14,13 +14,12 @@ class MyCardsView extends StatelessWidget {
         margin: const EdgeInsets.all(15.0),
         padding: const EdgeInsets.all(3.0),
         decoration: BoxDecoration(
-          color: Color(0xFF032E4A),
+          color: Color(0xFF022B47),
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,12 +55,60 @@ class MyCardsView extends StatelessWidget {
               ),
               Divider(height: 25, color: Colors.transparent),
               LimitListWidget(),
-              LinearChartWidget(),
               Divider(height: 25, color: Colors.transparent),
-              TransactionListWidget()
+              CharTransactionsWidget(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CharTransactionsWidget extends StatelessWidget {
+  const CharTransactionsWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
+      decoration: BoxDecoration(
+        color: Color(0xFF03314C),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+      ),
+      child: Column(
+        children: [
+          Text(
+            'Saved this month',
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+          Divider(height: 15, color: Colors.transparent),
+          Text(
+            '\$ 2.550,00',
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          LinearChartWidget(),
+          Divider(height: 5, color: Colors.transparent),
+          Container(
+            height: 1,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.transparent,
+                  const Color(0xFF28C0BE),
+                  Colors.transparent,
+                ].map((color) => color.withOpacity(0.20))
+                    .toList(),
+              ),
+            ),
+          ),
+          Divider(height: 45, color: Colors.transparent),
+          TransactionListWidget()
+        ],
       ),
     );
   }

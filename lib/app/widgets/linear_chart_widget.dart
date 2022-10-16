@@ -69,24 +69,7 @@ class _LinearChartWidgetState extends State<LinearChartWidget> {
 
   LineChartData mainData() {
     return LineChartData(
-      gridData: FlGridData(
-        show: true,
-        drawVerticalLine: true,
-        horizontalInterval: 1,
-        verticalInterval: 1,
-        getDrawingHorizontalLine: (value) {
-          return FlLine(
-            color: const Color(0xff37434d),
-            strokeWidth: 1,
-          );
-        },
-        getDrawingVerticalLine: (value) {
-          return FlLine(
-            color: const Color(0xff37434d),
-            strokeWidth: 1,
-          );
-        },
-      ),
+      gridData: FlGridData(show: false),
       titlesData: FlTitlesData(
         show: true,
         rightTitles: AxisTitles(
@@ -110,28 +93,27 @@ class _LinearChartWidgetState extends State<LinearChartWidget> {
         ),
       ),
       borderData: FlBorderData(
-        show: true,
-        border: Border.all(color: const Color(0xff37434d)),
+        show: false,
       ),
       minX: 0,
       maxX: 11,
       minY: 0,
-      maxY: 2,
+      maxY: 1999,
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, getListExpenses()[0].spentValue / 1000),
-            FlSpot(1, getListExpenses()[1].spentValue / 1000),
-            FlSpot(2, getListExpenses()[2].spentValue / 1000),
-            FlSpot(3, getListExpenses()[3].spentValue / 1000),
-            FlSpot(4, getListExpenses()[4].spentValue / 1000),
-            FlSpot(5, getListExpenses()[5].spentValue / 1000),
-            FlSpot(6, getListExpenses()[6].spentValue / 1000),
-            FlSpot(7, getListExpenses()[7].spentValue / 1000),
-            FlSpot(8, getListExpenses()[8].spentValue / 1000),
-            FlSpot(9, getListExpenses()[9].spentValue / 1000),
-            FlSpot(10, getListExpenses()[10].spentValue / 1000),
-            FlSpot(11, getListExpenses()[11].spentValue / 1000),
+            FlSpot(0, getListExpenses()[0].spentValue),
+            FlSpot(1, getListExpenses()[1].spentValue),
+            FlSpot(2, getListExpenses()[2].spentValue),
+            FlSpot(3, getListExpenses()[3].spentValue),
+            FlSpot(4, getListExpenses()[4].spentValue),
+            FlSpot(5, getListExpenses()[5].spentValue),
+            FlSpot(6, getListExpenses()[6].spentValue),
+            FlSpot(7, getListExpenses()[7].spentValue),
+            FlSpot(8, getListExpenses()[8].spentValue),
+            FlSpot(9, getListExpenses()[9].spentValue),
+            FlSpot(10, getListExpenses()[10].spentValue),
+            FlSpot(11, getListExpenses()[11].spentValue),
           ],
           isCurved: true,
           gradient: LinearGradient(

@@ -8,6 +8,7 @@ class TransactionListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'Last Transactions',
@@ -31,7 +32,7 @@ class TransactionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Card(
-        color: Color(0xFF032E4A),
+        color: Color(0xFF03314C),
         elevation: 0,
         child: Padding(
             padding: EdgeInsets.all(5),
