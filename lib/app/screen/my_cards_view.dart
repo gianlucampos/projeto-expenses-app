@@ -14,6 +14,15 @@ class MyCardsView extends StatelessWidget {
         margin: const EdgeInsets.all(15.0),
         padding: const EdgeInsets.all(3.0),
         decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.center,
+            end: Alignment.bottomCenter,
+              colors: [
+                Color(0xFF022B47),
+                Colors.transparent,
+                Colors.transparent,
+              ]
+          ),
           color: Color(0xFF022B47),
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
@@ -89,7 +98,7 @@ class CharTransactionsWidget extends StatelessWidget {
           Text(
             '\$ 2.550,00',
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
           ),
           LinearChartWidget(),
           Divider(height: 5, color: Colors.transparent),
@@ -101,8 +110,7 @@ class CharTransactionsWidget extends StatelessWidget {
                   Colors.transparent,
                   const Color(0xFF28C0BE),
                   Colors.transparent,
-                ].map((color) => color.withOpacity(0.20))
-                    .toList(),
+                ].map((color) => color.withOpacity(0.20)).toList(),
               ),
             ),
           ),

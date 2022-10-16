@@ -22,7 +22,7 @@ class _LinearChartWidgetState extends State<LinearChartWidget> {
     return Stack(
       children: <Widget>[
         AspectRatio(
-          aspectRatio: 1.70,
+          aspectRatio: 3,
           child: Padding(
             padding: const EdgeInsets.only(
               right: 18,
@@ -48,17 +48,17 @@ class _LinearChartWidgetState extends State<LinearChartWidget> {
 
     List<String> months = [
       'Jan',
-      'Feb',
+      '',
       'Mar',
-      'Apr',
+      '',
       'May',
-      'June',
+      '',
       'July',
-      'Aug',
+      '',
       'Sep',
-      'Oct',
+      '',
       'Nov',
-      'Dec'
+      ''
     ];
 
     return SideTitleWidget(
