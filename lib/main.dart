@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'app/screen/home_view.dart';
+import 'expenses/presentation/pages/home_view.dart';
 
 void main() {
   runApp(const HomeView());
