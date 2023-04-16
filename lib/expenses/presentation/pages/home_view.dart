@@ -1,5 +1,4 @@
-import 'package:expenses_app/expenses/domain/entities/CreditCard.dart';
-import 'package:expenses_app/expenses/presentation/widgets/credit_card_widget.dart';
+import 'package:expenses_app/expenses/presentation/pages/credit_card_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +22,7 @@ class HomeView extends StatelessWidget {
           child: Row(
             children: [
               MyCardsView(),
-              CreditCardWidget(cardInfo: CreditCard.Nubank()),
+              CreditCardView(),
             ],
           ),
         ),

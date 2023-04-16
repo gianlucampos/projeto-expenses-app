@@ -14,7 +14,15 @@ class CreditCardWidget extends StatelessWidget {
       margin: const EdgeInsets.all(15.0),
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(
-        color: Colors.deepPurple,
+        color: cardInfo.color,
+        gradient: LinearGradient(
+          colors: [
+            cardInfo.color.withOpacity(0.55),
+            cardInfo.color.withOpacity(0.95),
+            // Colors.transparent.withOpacity(0.95),
+            cardInfo.color.withOpacity(0.35),
+          ],
+        ),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
       child: Padding(
@@ -26,7 +34,7 @@ class CreditCardWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Nubank', style: TextStyle(color: Colors.white, fontSize: 22)),
+                Text(cardInfo.name, style: TextStyle(color: Colors.white, fontSize: 22)),
                 Icon(Icons.contactless_rounded,color: Colors.white, size: 40),
               ],
             ),
