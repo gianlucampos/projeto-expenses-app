@@ -1,5 +1,5 @@
 import 'package:expenses_app/expenses/domain/entities/CreditCard.dart';
-import 'package:expenses_app/expenses/presentation/widgets/credit_card_widget.dart';
+import 'package:expenses_app/expenses/presentation/credit_card/credit_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class CreditCardView extends StatelessWidget {

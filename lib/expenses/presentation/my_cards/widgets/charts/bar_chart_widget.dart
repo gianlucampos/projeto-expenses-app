@@ -147,7 +147,7 @@ class BarChartWidgetState extends State<BarChartWidget> {
                         ),
                       ),
                       leftTitles: AxisTitles(
-                        drawBehindEverything: true,
+                        drawBelowEverything: true,
                         axisNameSize: 25,
                         axisNameWidget: Text('Values'),
                         sideTitles: SideTitles(

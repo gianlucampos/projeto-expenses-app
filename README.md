@@ -1,16 +1,9 @@
 # expenses_app
 
-A new Flutter project.
+Track the expenses of your credits card
 
-## Getting Started
+## Wireframe
+https://dribbble.com/shots/15527112/attachments/7306667?mode=media
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Frame 1](https://cdn.dribbble.com/users/2747797/screenshots/15527112/media/03a9638c5b0fee4c7cc54ce3124e21f0.png)
+![Frame 2](https://cdn.dribbble.com/users/2747797/screenshots/15527112/media/92f4a8343e2c149b011d3d69268bd445.png)

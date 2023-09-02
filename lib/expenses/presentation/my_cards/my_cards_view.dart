@@ -1,6 +1,6 @@
-import 'package:expenses_app/expenses/presentation/widgets/limit_widget.dart';
-import 'package:expenses_app/expenses/presentation/widgets/charts/linear_chart_widget.dart';
-import 'package:expenses_app/expenses/presentation/widgets/transaction_widget.dart';
+import 'package:expenses_app/expenses/presentation/my_cards/widgets/charts/linear_chart_widget.dart';
+import 'package:expenses_app/expenses/presentation/my_cards/widgets/limit_widget.dart';
+import 'package:expenses_app/expenses/presentation/my_cards/widgets/transaction_widget.dart';
 import 'package:flutter/material.dart';
 
 class MyCardsView extends StatelessWidget {
@@ -64,7 +64,7 @@ class MyCardsView extends StatelessWidget {
             Divider(height: 25, color: Colors.transparent),
             LimitListWidget(),
             Divider(height: 25, color: Colors.transparent),
-            CharTransactionsWidget(),
+            ChartTransactionsWidget(),
           ],
         ),
       ),
@@ -72,8 +72,8 @@ class MyCardsView extends StatelessWidget {
   }
 }
 
-class CharTransactionsWidget extends StatelessWidget {
-  const CharTransactionsWidget({
+class ChartTransactionsWidget extends StatelessWidget {
+  const ChartTransactionsWidget({
     Key? key,
   }) : super(key: key);
 
