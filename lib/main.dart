@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'expenses/presentation/home/home_view.dart';
 
 void main() {
+  // Animate.restartOnHotReload = true;
   runApp(const MainApp());
 }
 
