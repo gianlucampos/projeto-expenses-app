@@ -35,9 +35,13 @@ class _CreditCardViewState extends State<CreditCardView> {
           children: [
             CreditCardWidget(cardInfo: cards[0])
                 .animate(
-                  target: startAnimation ? 1 : 0,
+                  target: startAnimation ? 0 : 1,
                   onComplete: (controller) => controller.reset(),
                 )
+                .moveY(begin: -300)
+                .moveX(begin: 300)
+                .scaleXY(begin: .5)
+                .rotate(begin: .125)
                 .slideY(
                   end: 1,
                   curve: FlippedCurve(Curves.easeIn),
@@ -45,9 +49,11 @@ class _CreditCardViewState extends State<CreditCardView> {
                 ),
             CreditCardWidget(cardInfo: cards[1])
                 .animate(
-                  target: startAnimation ? 0 : 1,
+                  target: startAnimation ? 1 : 0,
                   onComplete: (controller) => controller.reset(),
                 )
+                .scaleXY(end: .5)
+                .rotate(end: .875)
                 .slideY(
                   end: 1,
                   curve: FlippedCurve(Curves.easeIn),
@@ -58,20 +64,20 @@ class _CreditCardViewState extends State<CreditCardView> {
                   target: startAnimation ? 1 : 0,
                   onComplete: (controller) => controller.reset(),
                 )
+                .moveY(begin: 300)
+                .moveX(begin: 300)
+                .then()
                 .slideY(
                   end: -2,
                   curve: FlippedCurve(Curves.easeIn),
                   duration: 500.ms,
-                ),
+                )
+                .scaleXY(begin: .5)
+                .rotate(begin: .875),
           ],
         ),
-        IconButton(
-          padding: EdgeInsets.all(0.0),
-          iconSize: 150,
-          icon: Icon(
-            Icons.arrow_circle_left_outlined,
-            color: Colors.grey,
-          ),
+        TextButton(
+          child: Text('👈 Choose this card ', textScaleFactor: 3),
           onPressed: () {
             setState(() {
               startAnimation = !startAnimation;
