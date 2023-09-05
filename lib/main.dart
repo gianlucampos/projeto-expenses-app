@@ -16,6 +16,8 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
         scaffoldBackgroundColor: Color(0xFF001E3D),
         scrollbarTheme: ScrollbarThemeData(
           thumbColor: MaterialStateProperty.all<Color>(Colors.transparent),
