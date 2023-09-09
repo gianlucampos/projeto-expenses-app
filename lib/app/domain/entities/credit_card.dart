@@ -44,4 +44,9 @@ class CreditCard {
   int get hashCode {
     return name.hashCode;
   }
+
+  @override
+  String toString() {
+    return 'CreditCard{name: $name}';
+  }
 }

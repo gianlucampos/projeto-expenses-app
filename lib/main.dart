@@ -1,11 +1,18 @@
+import 'package:expenses_app/app/presentation/credit_card/store/credit_card_store.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'app/presentation/home/home_view.dart';
 
 void main() {
-  // Animate.restartOnHotReload = true;
+  setupDI();
   runApp(const MainApp());
+}
+
+void setupDI() {
+  GetIt getIt = GetIt.instance;
+  getIt.registerSingleton<CreditCardStore>(CreditCardStore());
 }
 
 class MainApp extends StatelessWidget {
