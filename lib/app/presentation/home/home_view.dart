@@ -1,6 +1,6 @@
-import 'package:expenses_app/expenses/presentation/credit_card/credit_card_view.dart';
-import 'package:expenses_app/expenses/presentation/home/widgets/side_menu_widget.dart';
-import 'package:expenses_app/expenses/presentation/my_cards/my_cards_view.dart';
+import 'package:expenses_app/app/presentation/credit_card/credit_card_view.dart';
+import 'package:expenses_app/app/presentation/home/widgets/side_menu_widget.dart';
+import 'package:expenses_app/app/presentation/expenses/my_expenses_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -34,7 +34,7 @@ class HomeView extends StatelessWidget {
                 thickness: 0.2,
               ),
             ),
-            SingleChildScrollView(child: MyCardsView()),
+            SingleChildScrollView(child: MyExpensesView()),
             SingleChildScrollView(child: CreditCardView()),
           ],
         ),

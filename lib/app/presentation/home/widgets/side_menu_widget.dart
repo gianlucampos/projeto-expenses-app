@@ -20,6 +20,8 @@ class NavItemModel {
 }
 
 class SideMenuWidget extends StatelessWidget {
+  final String appName = "App Name";
+
   final _navItems = const [
     NavItemModel(name: 'Dashboard', icon: Icons.dashboard),
     NavItemModel(name: 'Profile', icon: Icons.account_box),
@@ -50,7 +52,7 @@ class SideMenuWidget extends StatelessWidget {
                   spacing: 25,
                   children: [
                     const Icon(Icons.paypal, size: 50),
-                    const Text('My Expenses',
+                    Text(appName,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30,

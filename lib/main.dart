@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'expenses/presentation/home/home_view.dart';
+import 'app/presentation/home/home_view.dart';
 
 void main() {
   // Animate.restartOnHotReload = true;

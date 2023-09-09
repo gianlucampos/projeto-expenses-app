@@ -1,5 +1,5 @@
-import 'package:expenses_app/expenses/domain/entities/CreditCard.dart';
-import 'package:expenses_app/expenses/presentation/credit_card/widgets/credit_card_widget.dart';
+import 'package:expenses_app/app/domain/entities/credit_card.dart';
+import 'package:expenses_app/app/presentation/credit_card/widgets/credit_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 

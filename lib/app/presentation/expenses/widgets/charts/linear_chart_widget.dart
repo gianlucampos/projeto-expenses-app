@@ -1,4 +1,6 @@
-import 'package:expenses_app/expenses/domain/entities/Expense.dart';
+import 'package:expenses_app/app/data/repositories/expense_repository_impl.dart';
+import 'package:expenses_app/app/domain/entities/credit_card.dart';
+import 'package:expenses_app/app/domain/entities/expense.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -139,18 +141,6 @@ class _LinearChartWidgetState extends State<LinearChartWidget> {
 }
 
 List<Expense> getListExpenses() {
-  return [
-    Expense('Food', 1253.43, 4057.14, 'Jan'),
-    Expense('Food', 924.92, 4014.63, 'Feb'),
-    Expense('Food', 656.03, 5290.37, 'Mar'),
-    Expense('Food', 641.46, 4010.13, 'Apr'),
-    Expense('Food', 649.44, 5009.14, 'May'),
-    Expense('Food', 1001.30, 4060.31, 'June'),
-    Expense('Food', 1978.55, 4619.32, 'July'),
-    Expense('Food', 920.61, 4233.22, 'Aug'),
-    Expense('Food', 584.55, 4009.14, 'Sep'),
-    Expense('Food', 228.72, 4009.14, 'Oct'),
-    Expense('Food', 394.34, 6000.00, 'Nov'),
-    Expense('Food', 99.90, 6000.00, 'Dec'),
-  ];
+  final expenseRepository = ExpenseRepositoryImpl();
+  return expenseRepository.getExpensesFromCreditCard(CreditCard.Digio());
 }

@@ -1,10 +1,10 @@
-import 'package:expenses_app/expenses/presentation/my_cards/widgets/charts/linear_chart_widget.dart';
-import 'package:expenses_app/expenses/presentation/my_cards/widgets/limit_widget.dart';
-import 'package:expenses_app/expenses/presentation/my_cards/widgets/transaction_widget.dart';
+import 'package:expenses_app/app/presentation/expenses/widgets/charts/linear_chart_widget.dart';
+import 'package:expenses_app/app/presentation/expenses/widgets/limit_widget.dart';
+import 'package:expenses_app/app/presentation/expenses/widgets/transaction_widget.dart';
 import 'package:flutter/material.dart';
 
-class MyCardsView extends StatelessWidget {
-  const MyCardsView({Key? key}) : super(key: key);
+class MyExpensesView extends StatelessWidget {
+  const MyExpensesView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +14,13 @@ class MyCardsView extends StatelessWidget {
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment.center,
-          end: Alignment.bottomCenter,
+            begin: Alignment.center,
+            end: Alignment.bottomCenter,
             colors: [
               Color(0xFF022B47),
               Colors.transparent,
               Colors.transparent,
-            ]
-        ),
+            ]),
         color: Color(0xFF022B47),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
@@ -33,7 +32,7 @@ class MyCardsView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'My Cards',
+                  'My expenses',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

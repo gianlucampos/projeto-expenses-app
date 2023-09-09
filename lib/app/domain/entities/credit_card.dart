@@ -1,5 +1,6 @@
-import 'package:expenses_app/core/app_images.dart';
 import 'package:flutter/material.dart';
+
+import 'package:expenses_app/core/app_images.dart';
 
 class CreditCard {
   final String name;
@@ -31,4 +32,16 @@ class CreditCard {
         limitUsage = 9250,
         color = Colors.indigo,
         logoImage = AppImages.visa_logo;
+
+  @override
+  bool operator ==(covariant CreditCard other) {
+    if (identical(this, other)) return true;
+
+    return other.name == name;
+  }
+
+  @override
+  int get hashCode {
+    return name.hashCode;
+  }
 }
