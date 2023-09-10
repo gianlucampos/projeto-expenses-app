@@ -1,10 +1,9 @@
 import 'package:expenses_app/app/domain/entities/credit_card.dart';
 import 'package:expenses_app/app/presentation/credit_card/store/credit_card_store.dart';
 import 'package:expenses_app/app/presentation/credit_card/widgets/credit_card_widget.dart';
+import 'package:expenses_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:get_it/get_it.dart';
-
 
 class CreditCardAnimation extends StatefulWidget {
   final CreditCard creditCard;
@@ -21,7 +20,7 @@ class CreditCardAnimation extends StatefulWidget {
 
 class _CreditCardAnimationState extends State<CreditCardAnimation>
     with SingleTickerProviderStateMixin {
-  final cardStore = GetIt.I.get<CreditCardStore>();
+  final cardStore = getIt<CreditCardStore>();
   late AnimationController _controller;
   late Animation<Offset> animation = Tween<Offset>(
     begin: Offset.zero,

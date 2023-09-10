@@ -2,9 +2,9 @@ import 'package:expenses_app/app/domain/entities/credit_card.dart';
 import 'package:expenses_app/app/presentation/credit_card/store/credit_card_store.dart';
 import 'package:expenses_app/app/presentation/credit_card/widgets/credit_card_animation.dart';
 import 'package:expenses_app/app/presentation/credit_card/widgets/credit_card_widget.dart';
+import 'package:expenses_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:get_it/get_it.dart';
 
 class CreditCardView extends StatefulWidget {
   @override
@@ -12,31 +12,66 @@ class CreditCardView extends StatefulWidget {
 }
 
 class _CreditCardViewState extends State<CreditCardView> {
-  final cardStore = GetIt.I.get<CreditCardStore>();
-  bool startAnimation = false;
-  List<CreditCard> cards = [
-    CreditCard.Digio(),
-    CreditCard.Inter(),
-    CreditCard.Nubank()
-  ];
+  final cardStore = getIt<CreditCardStore>();
+  late bool startAnimation;
+  late List<CreditCard> cards;
+
+  @override
+  void initState() {
+    cardStore.loadCreditCards();
+    startAnimation = false;
+    cards = cardStore.creditCards;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.end,
+          // crossAxisAlignment: CrossAxisAlignment.end,
+          // mainAxisAlignment: MainAxisAlignment.end,
           children: [
             CreditCardAnimation(creditCard: cards[0]),
+            Center(
+              child: TextButton(
+                child: Text('☝️ Previous ', textScaleFactor: 2.5),
+                onPressed: _animate,
+              ),
+            ),
             CreditCardWidget(cardInfo: cards[1]),
+            Center(
+              child: TextButton(
+                child: Text('👇 Next ', textScaleFactor: 2.5),
+                onPressed: _animate,
+              ),
+            ),
             CreditCardWidget(cardInfo: cards[2])
-                .animate(autoPlay: false, effects: inclinateLowerCard()),
+                .animate(autoPlay: false, effects: _inclinateLowerCard()),
           ],
         ),
-        TextButton(
-          child: Text('👈 Choose this card ', textScaleFactor: 3),
-          onPressed: _animate,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextButton(
+              child: Text('💳 Add new card', textScaleFactor: 2.5),
+              onPressed: () {
+                print('edit');
+              },
+            ),
+            TextButton(
+              child: Text('📖 Edit card', textScaleFactor: 2.5),
+              onPressed: () {
+                print('edit');
+              },
+            ),
+            TextButton(
+              child: Text('🗑️ Remove card', textScaleFactor: 2.5),
+              onPressed: () {
+                print('edit');
+              },
+            ),
+          ],
         ),
       ],
     );
@@ -61,7 +96,7 @@ List _rotateArray(List nums, int count) {
   return nums;
 }
 
-List<Effect> inclinateLowerCard() {
+List<Effect> _inclinateLowerCard() {
   return [
     MoveEffect(begin: Offset(0, 300)),
     MoveEffect(begin: Offset(300, 0)),
