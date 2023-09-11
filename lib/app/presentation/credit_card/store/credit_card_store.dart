@@ -18,11 +18,19 @@ abstract class _CreditCardStore with Store {
         _addCreditCard = addCreditCardUsecase;
 
   @observable
-  Function? callbackAnimation;
+  Function? callbackPreviousCard;
 
   @action
-  void setCallbackAnimation(Function callback) {
-    callbackAnimation = callback;
+  void setCallbackPreviousCard(Function value) {
+    callbackPreviousCard = value;
+  }
+
+  @observable
+  Function? callbackNextCard;
+
+  @action
+  void setCallbackNextCard(Function value) {
+    callbackNextCard = value;
   }
 
   @observable

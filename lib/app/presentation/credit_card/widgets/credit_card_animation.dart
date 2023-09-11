@@ -7,15 +7,15 @@ import 'package:flutter_animate/flutter_animate.dart';
 
 class CreditCardAnimation extends StatefulWidget {
   final CreditCard creditCard;
+  final bool isNext;
 
   CreditCardAnimation({
     required this.creditCard,
+    required this.isNext,
   });
 
-  final state = _CreditCardAnimationState();
-
   @override
-  _CreditCardAnimationState createState() => state;
+  _CreditCardAnimationState createState() => _CreditCardAnimationState();
 }
 
 class _CreditCardAnimationState extends State<CreditCardAnimation>
@@ -24,7 +24,7 @@ class _CreditCardAnimationState extends State<CreditCardAnimation>
   late AnimationController _controller;
   late Animation<Offset> animation = Tween<Offset>(
     begin: Offset.zero,
-    end: const Offset(0.0, 1.0),
+    end: Offset(0.0, widget.isNext ? -1 : 1),
   ).animate(_controller);
 
   @override
@@ -33,7 +33,9 @@ class _CreditCardAnimationState extends State<CreditCardAnimation>
       vsync: this,
       duration: Duration(milliseconds: 150),
     );
-    cardStore.setCallbackAnimation(startAnimation);
+    widget.isNext
+        ? cardStore.setCallbackNextCard(_startAnimation)
+        : cardStore.setCallbackPreviousCard(_startAnimation);
     super.initState();
   }
 
@@ -43,7 +45,7 @@ class _CreditCardAnimationState extends State<CreditCardAnimation>
     super.dispose();
   }
 
-  void startAnimation() {
+  void _startAnimation() {
     print(widget.creditCard);
     _controller.forward();
     Future.delayed(Duration(milliseconds: 400), () {
@@ -56,11 +58,29 @@ class _CreditCardAnimationState extends State<CreditCardAnimation>
     return SlideTransition(
       position: animation,
       child: CreditCardWidget(cardInfo: widget.creditCard),
-    )
-        .animate(controller: _controller, autoPlay: false)
-        .moveY(begin: -300)
-        .moveX(begin: 300)
-        .scaleXY(begin: .5)
-        .rotate(begin: .125);
+    ).animate(
+      controller: _controller,
+      autoPlay: false,
+      // effects: _inclinateUpperCard(),
+      effects: widget.isNext ? _inclinateLowerCard() : _inclinateUpperCard(),
+    );
   }
+}
+
+List<Effect> _inclinateUpperCard() {
+  return [
+    MoveEffect(begin: Offset(0, -300)),
+    MoveEffect(begin: Offset(300, 0)),
+    ScaleEffect(begin: Offset(.5, .5)),
+    RotateEffect(begin: .125)
+  ];
+}
+
+List<Effect> _inclinateLowerCard() {
+  return [
+    MoveEffect(begin: Offset(0, 300)),
+    MoveEffect(begin: Offset(300, 0)),
+    ScaleEffect(begin: Offset(.5, .5)),
+    RotateEffect(begin: -.125)
+  ];
 }

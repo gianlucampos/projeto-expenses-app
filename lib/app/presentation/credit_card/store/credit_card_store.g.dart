@@ -9,19 +9,36 @@ part of 'credit_card_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$CreditCardStore on _CreditCardStore, Store {
-  late final _$callbackAnimationAtom =
-      Atom(name: '_CreditCardStore.callbackAnimation', context: context);
+  late final _$callbackPreviousCardAtom =
+      Atom(name: '_CreditCardStore.callbackPreviousCard', context: context);
 
   @override
-  Function? get callbackAnimation {
-    _$callbackAnimationAtom.reportRead();
-    return super.callbackAnimation;
+  Function? get callbackPreviousCard {
+    _$callbackPreviousCardAtom.reportRead();
+    return super.callbackPreviousCard;
   }
 
   @override
-  set callbackAnimation(Function? value) {
-    _$callbackAnimationAtom.reportWrite(value, super.callbackAnimation, () {
-      super.callbackAnimation = value;
+  set callbackPreviousCard(Function? value) {
+    _$callbackPreviousCardAtom.reportWrite(value, super.callbackPreviousCard,
+        () {
+      super.callbackPreviousCard = value;
+    });
+  }
+
+  late final _$callbackNextCardAtom =
+      Atom(name: '_CreditCardStore.callbackNextCard', context: context);
+
+  @override
+  Function? get callbackNextCard {
+    _$callbackNextCardAtom.reportRead();
+    return super.callbackNextCard;
+  }
+
+  @override
+  set callbackNextCard(Function? value) {
+    _$callbackNextCardAtom.reportWrite(value, super.callbackNextCard, () {
+      super.callbackNextCard = value;
     });
   }
 
@@ -45,11 +62,22 @@ mixin _$CreditCardStore on _CreditCardStore, Store {
       ActionController(name: '_CreditCardStore', context: context);
 
   @override
-  void setCallbackAnimation(Function callback) {
+  void setCallbackPreviousCard(Function value) {
     final _$actionInfo = _$_CreditCardStoreActionController.startAction(
-        name: '_CreditCardStore.setCallbackAnimation');
+        name: '_CreditCardStore.setCallbackPreviousCard');
     try {
-      return super.setCallbackAnimation(callback);
+      return super.setCallbackPreviousCard(value);
+    } finally {
+      _$_CreditCardStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCallbackNextCard(Function value) {
+    final _$actionInfo = _$_CreditCardStoreActionController.startAction(
+        name: '_CreditCardStore.setCallbackNextCard');
+    try {
+      return super.setCallbackNextCard(value);
     } finally {
       _$_CreditCardStoreActionController.endAction(_$actionInfo);
     }
@@ -80,7 +108,8 @@ mixin _$CreditCardStore on _CreditCardStore, Store {
   @override
   String toString() {
     return '''
-callbackAnimation: ${callbackAnimation},
+callbackPreviousCard: ${callbackPreviousCard},
+callbackNextCard: ${callbackNextCard},
 creditCards: ${creditCards}
     ''';
   }

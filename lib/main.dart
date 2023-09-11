@@ -3,6 +3,7 @@ import 'package:expenses_app/app/domain/use_cases/add_credit_card_usecase.dart';
 import 'package:expenses_app/app/domain/use_cases/get_credit_cards_usecase.dart';
 import 'package:expenses_app/app/presentation/credit_card/store/credit_card_store.dart';
 import 'package:expenses_app/app/presentation/home/home_view.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,6 +44,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      scrollBehavior: MyCustomScrollBehavior(),
       theme: ThemeData(
         brightness: Brightness.dark,
         useMaterial3: true,
@@ -56,4 +58,13 @@ class MainApp extends StatelessWidget {
       home: HomeView(),
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+  };
 }

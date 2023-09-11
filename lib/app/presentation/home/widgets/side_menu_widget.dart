@@ -30,14 +30,14 @@ class SideMenuWidget extends StatelessWidget {
     NavItemModel(name: 'Guarantees', icon: Icons.security),
   ];
   final _accountItems = const [
-    NavItemModel(name: 'Settings', icon: Icons.access_alarms_sharp),
+    NavItemModel(name: 'Settings', icon: Icons.settings),
     NavItemModel(name: 'Sign Out', icon: Icons.login_outlined),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
       child: SideMenu(
         mode: SideMenuMode.open,
         backgroundColor: Color(0xFF001E3D),
@@ -104,7 +104,6 @@ class SideMenuWidget extends StatelessWidget {
                       titleStyle: TextStyle(color: const Color(0xff23e3d9)),
                       selectedTitleStyle: TextStyle(
                         color: const Color(0xff23e3d9),
-                        // fontWeight: FontWeight.bold,
                       ),
                       icon: Icon(
                         e.icon,

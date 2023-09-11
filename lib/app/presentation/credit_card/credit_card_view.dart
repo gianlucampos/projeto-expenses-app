@@ -29,25 +29,22 @@ class _CreditCardViewState extends State<CreditCardView> {
     return Row(
       children: [
         Column(
-          // crossAxisAlignment: CrossAxisAlignment.end,
-          // mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            CreditCardAnimation(creditCard: cards[0]),
+            CreditCardAnimation(creditCard: cards[0], isNext: false),
             Center(
               child: TextButton(
                 child: Text('☝️ Previous ', textScaleFactor: 2.5),
-                onPressed: _animate,
+                onPressed: () => _changeCard(false),
               ),
             ),
             CreditCardWidget(cardInfo: cards[1]),
             Center(
               child: TextButton(
                 child: Text('👇 Next ', textScaleFactor: 2.5),
-                onPressed: _animate,
+                onPressed: () => _changeCard(true),
               ),
             ),
-            CreditCardWidget(cardInfo: cards[2])
-                .animate(autoPlay: false, effects: _inclinateLowerCard()),
+            CreditCardAnimation(creditCard: cards[2], isNext: true),
           ],
         ),
         Column(
@@ -77,11 +74,13 @@ class _CreditCardViewState extends State<CreditCardView> {
     );
   }
 
-  void _animate() {
-    cardStore.callbackAnimation?.call();
+  void _changeCard(bool isNext) {
+    isNext
+        ? cardStore.callbackNextCard?.call()
+        : cardStore.callbackPreviousCard?.call();
     Future.delayed(400.ms).whenComplete(
       () => super.setState(() {
-        cards = _rotateArray(cards, 1) as List<CreditCard>;
+        cards = _rotateArray(cards, isNext ? 2 : 1) as List<CreditCard>;
       }),
     );
   }
@@ -94,13 +93,4 @@ List _rotateArray(List nums, int count) {
   nums.removeRange(r, nums.length);
   nums.insertAll(0, getRenges);
   return nums;
-}
-
-List<Effect> _inclinateLowerCard() {
-  return [
-    MoveEffect(begin: Offset(0, 300)),
-    MoveEffect(begin: Offset(300, 0)),
-    ScaleEffect(begin: Offset(.5, .5)),
-    RotateEffect(begin: .875)
-  ];
 }
