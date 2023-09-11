@@ -11,13 +11,21 @@ class LimitListWidget extends StatelessWidget {
       width: 700,
       decoration: BoxDecoration(
         color: Color(0xFF03314C),
-        borderRadius: BorderRadius.all(Radius.circular(15)),
+        borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
       child: Row(
         children: [
-          LimitWidget(),
+          LimitWidget(
+            color: Color(0xFFFFAEED),
+            typeLimit: 'Card',
+            limitRange: [1650, 9250],
+          ),
           SizedBox(width: 75),
-          LimitWidget(),
+          LimitWidget(
+            color: Colors.greenAccent,
+            typeLimit: 'Total',
+            limitRange: [4950*2, 27750],
+          ),
         ],
       ),
     );
@@ -25,8 +33,15 @@ class LimitListWidget extends StatelessWidget {
 }
 
 class LimitWidget extends StatelessWidget {
+  final Color color;
+  final String typeLimit;
+  final List<int> limitRange;
+
   const LimitWidget({
     Key? key,
+    required this.color,
+    required this.typeLimit,
+    required this.limitRange,
   }) : super(key: key);
 
   @override
@@ -47,8 +62,8 @@ class LimitWidget extends StatelessWidget {
               width: 50,
               child: CircularProgressIndicator(
                 strokeWidth: 10,
-                value: 0.7,
-                color: Color(0xFFFFAEED),
+                value: limitRange[0] / limitRange[1],
+                color: color,
                 backgroundColor: Color(0xFF7B93A5),
               ),
             ),
@@ -57,9 +72,10 @@ class LimitWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Credit Limit', style: TextStyle(color: Colors.white)),
+              Text('$typeLimit Limit', style: TextStyle(color: Colors.white)),
               Divider(height: 10),
-              Text('\$ 1600 / \$ 2000', style: TextStyle(color: Colors.white)),
+              Text('\$ ${limitRange[0]} / \$ ${limitRange[1]}',
+                  style: TextStyle(color: Colors.white)),
             ],
           ),
         ],

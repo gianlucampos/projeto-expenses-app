@@ -17,7 +17,6 @@ class TransactionListWidget extends StatelessWidget {
         ),
         Divider(height: 25, color: Colors.transparent),
         TransactionWidget(),
-        TransactionWidget(),
       ],
     );
   }
@@ -30,35 +29,42 @@ class TransactionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Card(
-        color: Color(0xFF03314C),
-        elevation: 0,
-        child: Padding(
-            padding: EdgeInsets.all(5),
-            child: ListTile(
-              leading: Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Color(0xFF2F586F),
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.blueAccent),
-                ),
-                child: Icon(
-                  Icons.fastfood,
-                  color: Color(0xFF1AACAD),
-                ),
+    return SizedBox(
+      height: 170,
+      child: ListView.separated(
+        shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
+        separatorBuilder: (context, index) => SizedBox(
+          height: 10,
+        ),
+        itemCount: 8,
+        itemBuilder: (context, index) {
+          return ListTile(
+            contentPadding: EdgeInsetsDirectional.zero,
+            leading: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Color(0xFF2F586F),
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.blueAccent),
               ),
-              title: Text('Food', style: TextStyle(color: Colors.white)),
-              trailing: Text(
-                '-\$ 24,00',
-                style: TextStyle(
-                    color: Color(0xFF1DBCBB),
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+              child: Icon(
+                Icons.fastfood,
+                color: Color(0xFF1AACAD),
               ),
-            )),
+            ),
+            title: Text(index == 7 ? 'I think its timee for you to start to seriously consider salads or you will flip the car' : 'Food',
+                style: TextStyle(color: Colors.white)),
+            trailing: Text(
+              '-\$ 24,00',
+              style: TextStyle(
+                  color: Color(0xFF1DBCBB),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
+          );
+        },
       ),
     );
   }

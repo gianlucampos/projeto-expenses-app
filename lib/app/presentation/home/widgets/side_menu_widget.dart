@@ -48,8 +48,6 @@ class SideMenuWidget extends StatelessWidget {
             header: Column(
               children: [
                 Wrap(
-                  alignment: WrapAlignment.spaceAround,
-                  spacing: 25,
                   children: [
                     const Icon(Icons.paypal, size: 50),
                     Text(appName,
@@ -59,7 +57,7 @@ class SideMenuWidget extends StatelessWidget {
                         )).showOrNull(data.isOpen),
                   ],
                 ),
-                SizedBox(height: 50)
+                SizedBox(height: 100)
               ],
             ),
             items: [

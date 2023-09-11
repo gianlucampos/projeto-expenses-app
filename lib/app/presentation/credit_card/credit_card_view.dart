@@ -47,6 +47,7 @@ class _CreditCardViewState extends State<CreditCardView> {
             CreditCardAnimation(creditCard: cards[2], isNext: true),
           ],
         ),
+        SizedBox(width: 50),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
